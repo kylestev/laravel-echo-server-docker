@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  redis:
+    container_name: 'redis'
+    image: 'redis:3.2.6-alpine'
+
+  laravel-echo:
+    image: 'kylestev/laravel-echo-server:1.2.1'
+    container_name: 'laravel-echo-server'
+    ports:
+      - '6001:6001'
+    links:
+      - 'redis:redis'
+    volumes:
+      - /Users/kylestev/dd/laravel-echo-server.json:/app/laravel-echo-server.json:ro
