@@ -5,4 +5,4 @@ COPY package.json /app
 RUN npm install
 EXPOSE 6001
 
-ENTRYPOINT ["npm", "run"]
+ENTRYPOINT ["/app/node_modules/.bin/laravel-echo-server"]
